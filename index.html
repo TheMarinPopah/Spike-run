@@ -1,11 +1,58 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Spike Run</title>
+  <title>AI Geometry Dash</title>
+  <style>
+    /* Remove default spacing */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* No scrollbars */
+      height: 100%;
+      background: black;
+    }
+
+    /* Make canvas fill screen */
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* UI styling */
+    #ui {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      z-index: 10;
+    }
+  </style>
 </head>
 <body>
-  <h1>test12</h1>
+  <canvas id="gameCanvas"></canvas>
+
+  <div id="ui">
+    <div id="score">Score: 0</div>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    // Resize on load and when window changes
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+  </script>
 </body>
 </html>
+
+
